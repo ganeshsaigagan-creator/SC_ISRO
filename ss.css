@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Geo:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+
 body {
     margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    color: #fff;
+    font-family: 'Play', sans-serif;
+    color: #f7f8d2;
     background-color: #000;
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -30,9 +37,10 @@ body {
 }
 
 .nav ul {
-	
     list-style: none;
     float: right;
+    padding: 0;
+    margin: 0;
 }
 
 .nav ul li {
@@ -45,19 +53,19 @@ body {
     padding: 20px;
     display: inline-block;
     font-weight: 400;
+    transition: color 0.3s;
 }
 
 .nav ul li a:hover {
-    color: #007bff;
+    color: #ff0000;
 }
 
 .home {
-	font-family: 'Exo', sans-serif;
-    background: url('space-background.jpg') no-repeat center center/cover;
+    font-family: 'Quantico', sans-serif;
     height: 100vh;
     position: relative;
     text-align: center;
-    color: #fff;
+    color: #f7f8d2;
 }
 
 .home .overlay {
@@ -91,8 +99,8 @@ body {
     display: inline-block;
     padding: 10px 20px;
     border: none;
-    background: #007bff;
-    color: #fff;
+    background: #0501fe;
+    color: #f7f8d2;
     text-decoration: none;
     font-size: 18px;
     border-radius: 5px;
@@ -101,7 +109,7 @@ body {
 }
 
 .home .btn:hover {
-    background: #0056b3;
+    background: #370160;
 }
 
 @keyframes fadeInDown {
@@ -131,33 +139,63 @@ section {
     text-align: center;
 }
 
-.about, .missions, .team, .contact {
+.about, .missions, .contact {
     background: #111;
     margin-bottom: 20px;
 }
 
-.about h2, .missions h2, .team h2, .contact h2 {
+.about h2, .missions h2, .contact h2 {
     font-size: 36px;
     margin-bottom: 20px;
 }
 
-.missions-list, .team-list {
+.missions-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
-.mission, .team-member {
+.mission {
     background: #222;
     padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    width: 30%;
-    transition: transform 0.3s;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.mission:hover, .team-member:hover {
-    transform: scale(1.05);
+.mission:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.mission h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+.mission p {
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+.mission .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #ff0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.mission .btn:hover {
+    background: #027cff;
 }
 
 .contact form {
@@ -168,28 +206,38 @@ section {
 
 .contact form input, .contact form textarea {
     width: 80%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: none;
+    border: 1px solid #444;
+    background: #222;
+    color: #fff;
     border-radius: 5px;
+    font-family: inherit;
+}
+
+.contact form input::placeholder, .contact form textarea::placeholder {
+    color: #888;
 }
 
 .contact form button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    background: #007bff;
+    background: #3300ff;
     color: #fff;
     font-size: 18px;
+    font-family: 'Goldman', sans-serif;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .contact form button:hover {
-    background: #0056b3;
+    background: #560101;
 }
 
 .footer {
     background: #111;
     padding: 20px 0;
     text-align: center;
+    border-top: 1px solid #333;
 }
