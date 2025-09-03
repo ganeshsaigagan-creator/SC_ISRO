@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardust Cyborgs</title>
+    <link rel="stylesheet" href="ss.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Stardust Cyborgs</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#missions">Missions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="home">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Welcome to Stardust Cyborgs</h2>
+            <p>Join us in the journey of space exploration</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Stardust Cyborgs is proud to share its affiliation and association with the Indian Space Research Organisation (ISRO). We are dedicated to supporting and contributing to the exploration of the cosmos, inspired by ISRO's groundbreaking missions.</p>
+        </div>
+    </section>
+
+    <section id="missions" class="missions">
+        <div class="container">
+            <h2>Our Missions</h2>
+            <div class="missions-list">
+                <!-- The missions list will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <!-- This button now links to the ISRO website -->
+                <button onclick="window.location.href='https://www.isro.gov.in/'">Visit ISRO Website</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Stardust Cyborgs. All rights reserved.</p>
+    </footer>
+
+    <script src="ss.js"></script>
+</body>
+</html>
