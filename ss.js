@@ -3,7 +3,7 @@ let hasSpoken = false;
 
 // Speak a welcome message and the about section text once on page load
 function speakWelcome() {
-    if (!hasSpoken) {
+    if ('speechSynthesis' in window && !hasSpoken) {
         const welcomeMessage = "Welcome to Stardust Cyborgs. Stardust Cyborgs is proud to share its affiliation and association with the Indian Space Research Organisation (ISRO). We are dedicated to supporting and contributing to the exploration of the cosmos, inspired by ISRO's groundbreaking missions.";
         const utterance = new SpeechSynthesisUtterance(welcomeMessage);
         speechSynthesis.speak(utterance);
@@ -14,28 +14,19 @@ function speakWelcome() {
 // Call the speech function on page load
 window.addEventListener('load', speakWelcome);
 
-// Smooth scrolling for anchor links
+// Smooth scrolling for all internal anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Find the target element
         const targetElement = document.querySelector(this.getAttribute('href'));
-        
-        // Scroll to the target element
         if (targetElement) {
             targetElement.scrollIntoView({
                 behavior: 'smooth'
             });
         }
-        
-        // Check if the clicked link is the "Missions" link
-        if (this.getAttribute('href') === '#missions') {
-            loadISROMissions();
-        }
     });
 });
-
 
 // An array of ISRO missions and their official links
 const isroMissions = [
@@ -50,7 +41,8 @@ const isroMissions = [
 // Function to dynamically load and display ISRO missions
 function loadISROMissions() {
     const missionsList = document.querySelector('.missions-list');
-    missionsList.innerHTML = ''; // Clear existing content
+    if (missionsList.children.length > 0) return;
+    missionsList.innerHTML = '';
 
     isroMissions.forEach(mission => {
         const missionDiv = document.createElement('div');
@@ -63,3 +55,33 @@ function loadISROMissions() {
         missionsList.appendChild(missionDiv);
     });
 }
+
+// Event listener for the "Explore Missions" button in the body.
+document.querySelector('.explore-missions-btn').addEventListener('click', loadISROMissions);
+
+// Event listener for the "Missions" link in the navigation bar.
+document.querySelector('a[href="#missions"]').addEventListener('click', loadISROMissions);
+
+// Event listener for the "Visit ISRO Website" button
+document.getElementById("isrobtn").addEventListener("click", function() {
+    const form = this.closest('form');
+    if (form.checkValidity()) {
+        window.open("https://www.isro.gov.in/", "_blank");
+    } else {
+        const contactSection = document.getElementById('contact');
+        let messageBox = contactSection.querySelector('.message-box');
+        if (!messageBox) {
+            messageBox = document.createElement('div');
+            messageBox.className = 'message-box';
+            messageBox.style.cssText = `
+                background-color: #ffee01ff;
+                color: black;
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 5px;
+            `;
+            contactSection.querySelector('form').appendChild(messageBox);
+        }
+        messageBox.textContent = "Please fill out all fields before visiting ISRO.";
+    }
+});
